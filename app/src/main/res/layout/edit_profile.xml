@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Idade"
+            android:textSize="20sp"
+            android:id="@+id/texto_do_input_idade"/>
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/input"
+            android:layout_toRightOf="@id/texto_do_input_idade"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" 
+        android:id="@+id/instrumento_tocado"
+        android:text="Instrumento(s) tocado"
+        android:textSize="20sp"
+        android:layout_below="@id/texto_do_input_idade"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Estilo de musica preferido"
+        android:textSize="20sp"
+        android:layout_below="@id/instrumento_tocado"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Sobre mim"
+            android:textSize="20sp"
+            android:id="@+id/texto_do_input_sobre_mim"/>
+    </RelativeLayout>
+
+</android.support.constraint.ConstraintLayout>

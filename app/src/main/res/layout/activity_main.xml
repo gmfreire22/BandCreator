@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.guilh.bandcreator.MainActivity">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingBottom="18sp"
+        android:paddingRight="20sp"
+        android:paddingLeft="20sp"
+        android:paddingTop="50sp">
+
+        <TextView
+            android:id="@+id/ad"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:paddingBottom="12sp"
+            android:text="Ache músicos para a sua banda."
+            android:textAlignment="center"
+            android:textColor="@color/Black"
+            android:textSize="40sp" />
+
+        <Button
+            android:id="@+id/Cadastrar_se"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/imageView2"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="23dp"
+            android:background="@drawable/butao"
+            android:text="Cadastre-se"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp" />
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:paddingTop="20sp"
+            android:id="@+id/relativeLayout">
+
+            <TextView
+                android:id="@+id/tem_conta"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Já tem uma conta?"
+                android:textSize="20sp" />
+
+            <Button
+                android:id="@+id/login"
+                style="?android:attr/borderlessButtonStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@id/tem_conta"
+                android:layout_toRightOf="@id/tem_conta"
+                android:text="Faça login"
+                android:textAllCaps="false"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="18sp" />
+        </RelativeLayout>
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="150sp"
+            android:layout_height="140sp"
+            android:layout_below="@+id/ad"
+            android:layout_centerHorizontal="true"
+            android:adjustViewBounds="false"
+            android:cropToPadding="false"
+            app:srcCompat="@mipmap/ic_launcher_round" />
+    </RelativeLayout>
+
+
+
+</android.support.constraint.ConstraintLayout>
