@@ -1,41 +1,196 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
-    android:layout_height="match_parent">
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="10sp"
+    android:paddingTop="4sp"
+    android:paddingBottom="40sp"
+    android:paddingRight="10sp">
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Idade"
-            android:textSize="20sp"
-            android:id="@+id/texto_do_input_idade"/>
-        <EditText
+            android:id="@+id/titulo_para_edit_profile"
+            android:text="Editar perfil"
+            android:textColor="@color/Black"
+            android:textSize="32sp"
+            android:layout_centerHorizontal="true"/>
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/titulo_para_edit_profile"
+            android:id="@+id/scrollView">
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/texto_para_genero"
+                    android:text="Selecione o seu gênero"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="10sp"
+                    android:layout_marginBottom="5sp"
+                    android:textSize="18sp"/>
+        <RelativeLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@drawable/input"
-            android:layout_toRightOf="@id/texto_do_input_idade"/>
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" 
-        android:id="@+id/instrumento_tocado"
-        android:text="Instrumento(s) tocado"
-        android:textSize="20sp"
-        android:layout_below="@id/texto_do_input_idade"/>
-
+            android:layout_marginTop="14sp"
+            android:layout_marginBottom="12sp"
+            android:layout_below="@id/texto_para_genero"
+            android:layout_centerHorizontal="true"
+            android:id="@+id/layout_for_gender_selection">
+            <ImageView
+                android:id="@+id/man_button"
+                android:layout_width="50sp"
+                android:layout_height="50sp"
+                android:src="@drawable/man"
+                android:clickable="true" />
+            <ImageView
+                android:layout_width="50sp"
+                android:layout_height="50sp"
+                android:src="@drawable/woman"
+                android:id="@+id/woman_button"
+                android:clickable="true"
+                android:layout_toRightOf="@id/man_button"/>
+        </RelativeLayout>
+        <TextView
+            android:id="@+id/texto_do_input_idade"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/input_idade"
+            android:layout_alignBottom="@+id/input_idade"
+            android:layout_alignParentStart="true"
+            android:text="Idade"
+            android:layout_marginBottom="12sp"
+            android:textSize="20sp" />
+        <EditText
+            android:layout_width="40sp"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/texto_do_input_idade"
+            android:layout_below="@id/layout_for_gender_selection"
+            android:id="@+id/input_idade"
+            android:layout_marginBottom="12sp"
+            android:inputType="number"/>
+        <TextView
+            android:id="@+id/texto_de_instrumento"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Instrumento(s) tocado(s)"
+            android:layout_below="@id/input_idade"
+            android:textSize="20sp" />
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Piano"
+                android:id="@+id/Piano"
+                android:layout_below="@id/texto_de_instrumento"/>
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Guitarra"
+                android:id="@+id/Guitarra"
+                android:layout_below="@id/Piano"/>
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Cantor(a)"
+                android:id="@+id/Cantor"
+                android:layout_below="@id/Guitarra"/>
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Baixo"
+                android:id="@+id/Baixo"
+                android:layout_below="@id/Cantor"/>
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Bateria"
+                android:id="@+id/Bateria"
+                android:layout_below="@id/Baixo"/>
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Saxaphone"
+                android:id="@+id/Saxaphone"
+                android:layout_below="@id/Bateria"/>
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Estilo de musica preferido"
+        android:text="Estilo(s) de musica preferido"
         android:textSize="20sp"
-        android:layout_below="@id/instrumento_tocado"/>
+        android:layout_marginBottom="16sp"
+        android:id="@+id/texto_para_input_estilo"
+        android:layout_below="@id/Saxaphone" />
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Rock"
+                android:id="@+id/Rock"
+                android:layout_below="@id/texto_para_input_estilo"/>
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Blues"
+                android:id="@+id/Blues"
+                android:layout_below="@id/Rock"/>
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Jazz"
+                android:id="@+id/Jazz"
+                android:layout_below="@id/Blues"/>
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Punk"
+                android:id="@+id/Punk"
+                android:layout_below="@id/Jazz"/>
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Classical"
+                android:id="@+id/Classical"
+                android:layout_below="@id/Punk"/>
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Pop"
+                android:id="@+id/Pop"
+                android:layout_below="@id/Classical"/>
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Hip Hop"
+                android:id="@+id/HipHop"
+                android:layout_below="@id/Pop"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Sobre mim"
             android:textSize="20sp"
+            android:layout_marginBottom="2sp"
+            android:layout_below="@id/HipHop"
             android:id="@+id/texto_do_input_sobre_mim"/>
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/input_sobre_mim"
+            android:layout_below="@id/texto_do_input_sobre_mim"
+            android:background="@drawable/input"
+            android:maxLines="2"
+            android:maxLength="80"/>
+                <ImageView
+                    android:id="@+id/done"
+                    android:layout_width="70sp"
+                    android:layout_height="70sp"
+                    android:layout_marginTop="70sp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_below="@id/texto_do_input_sobre_mim"
+                    android:clickable="true"
+                    android:src="@drawable/done" />
+            </RelativeLayout>
+</ScrollView>
     </RelativeLayout>
-
-</android.support.constraint.ConstraintLayout>

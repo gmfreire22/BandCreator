@@ -5,7 +5,7 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:paddingTop="10sp"
+        android:paddingTop="12sp"
         android:paddingBottom="8sp"
         android:paddingLeft="14sp"
         android:paddingRight="14sp">
@@ -13,20 +13,29 @@
         android:id="@+id/simpleSpinner"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="50dp" />
+        android:layout_marginTop="20sp"/>
         <Spinner
             android:id="@+id/simpleSpinner2"
             android:layout_toRightOf="@id/simpleSpinner"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="50dp"/>
-
+            android:layout_marginTop="20sp"/>
+        <ImageView
+            android:layout_width="60sp"
+            android:layout_height="60sp"
+            android:layout_centerHorizontal="true"
+            android:id="@+id/search_view"
+            android:layout_marginTop="12sp"
+            android:layout_below="@id/simpleSpinner2"
+            android:src="@drawable/search"
+            android:clickable="true"/>
         <ListView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:visibility="gone"
             android:layout_marginTop="8sp"
             android:layout_below="@id/search_view"/>
+
     </RelativeLayout>
 
 
