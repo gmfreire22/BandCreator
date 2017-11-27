@@ -26,7 +26,7 @@
             android:layout_below="@id/titulo_de_cadastro"
             android:layout_marginLeft="2sp"
             android:layout_marginTop="12sp"
-            android:text="Usuário"
+            android:text="Email"
             android:textSize="20sp" />
 
         <EditText
@@ -38,7 +38,7 @@
             android:background="@drawable/input"
             android:textSize="20sp"
             android:inputType="textFilter"
-            android:digits="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890-_."
+            android:digits="abcdefghijklmnopqrstuvwxyz1234567890-_.@"
             android:maxLines="1"
             android:lines="1"
             android:maxLength="@integer/maximum_lines"
@@ -56,7 +56,7 @@
             />
 
         <EditText
-            android:id="@+id/senha_input"
+            android:id="@+id/nova_senha_input"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/senha"
@@ -72,7 +72,7 @@
             android:id="@+id/confirmar_a_senha"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/senha_input"
+            android:layout_below="@id/nova_senha_input"
             android:layout_marginLeft="2sp"
             android:layout_marginTop="20sp"
             android:text="Confirmar a senha"

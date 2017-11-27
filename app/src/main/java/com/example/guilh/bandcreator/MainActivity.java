@@ -14,11 +14,15 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        boolean isFirstTime = MyPreferences.isFirst(MainActivity.this);
+        intent_login = new Intent(this, Login.class);
+        if (isFirstTime==false){
+           //startActivity(intent_login);
+        }
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         cadastro = (Button) findViewById(R.id.Cadastrar_se);
         login = (Button) findViewById(R.id.login);
-        intent_login = new Intent(this, Login.class);
         intent_signup = new Intent(this, SignUp.class);
         login.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -38,4 +42,5 @@ public class MainActivity extends AppCompatActivity {
     public void onBackPressed() {
         return;
     }
+
 }

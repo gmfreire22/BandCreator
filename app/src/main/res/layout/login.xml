@@ -23,7 +23,7 @@
             android:layout_below="@id/titulo_de_login"
             android:layout_marginLeft="2sp"
             android:layout_marginTop="12sp"
-            android:text="Usuário"
+            android:text="Email"
             android:textSize="20sp" />
 
     <EditText
@@ -38,7 +38,7 @@
         android:maxLines="1"
         android:textSize="20sp"
         android:inputType="textFilter"
-        android:digits="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890-_."/>
+        android:digits="abcdefghijklmnopqrstuvwxyz1234567890-_.@"/>
 
         <TextView
             android:id="@+id/senha"

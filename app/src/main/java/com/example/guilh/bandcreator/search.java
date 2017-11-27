@@ -12,9 +12,11 @@ public class search extends AppCompatActivity implements AdapterView.OnItemSelec
     String[] instruments={"piano", "guitarra"};
     ImageView go_to_search_button;
     ListView listView;
-    int symbols[] = {R.drawable.classic_music, R.drawable.guitar};
+    //int symbols[] = {R.drawable.classic_music, R.drawable.guitar};
+    int symbols[] = {R.drawable.man, R.drawable.man};
     String[] styles = {"no preference", "classic", "rock", "jazz", "blues", "punk", "hip hop"};
-    int styles_icons[] = {R.drawable.black_dot, R.drawable.classic_music, R.drawable.rock, R.drawable.jazz, R.drawable.blues,R.drawable.punk, R.drawable.hip_hop};
+    //int styles_icons[] = {R.drawable.black_dot, R.drawable.classic_music, R.drawable.rock, R.drawable.jazz, R.drawable.blues,R.drawable.punk, R.drawable.hip_hop};
+    int styles_icons[] = {R.drawable.man, R.drawable.man, R.drawable.man, R.drawable.man, R.drawable.man,R.drawable.man, R.drawable.man};
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,5 +52,8 @@ public class search extends AppCompatActivity implements AdapterView.OnItemSelec
         public void onNothingSelected(AdapterView<?> arg0) {
 
         }
-
+    @Override
+    public void onBackPressed() {
+        return;
+    }
     }
