@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -28,7 +29,7 @@ public class Login extends AppCompatActivity {
     EditText usuario_editText;
     EditText password_editText;
     FirebaseAuth auth;
-    String email;
+    String email, password;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,8 +39,8 @@ public class Login extends AppCompatActivity {
         password_editText = (EditText) findViewById(R.id.senha_input);
         auth = FirebaseAuth.getInstance();
         if (auth.getCurrentUser() != null) {
-           startActivity(new Intent(Login.this, MainActivity.class));
-           finish();
+           //startActivity(new Intent(Login.this, MainActivity.class));
+           //finish();
         }
         fazer_login_button = (Button) findViewById(R.id.fazer_login);
         go_back_button = (Button) findViewById(R.id.voltar_cadastro);
@@ -48,8 +49,9 @@ public class Login extends AppCompatActivity {
         fazer_login_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                email = usuario_editText.getText().toString();
-                final String password = password_editText.getText().toString();
+                email = usuario_editText.getText().toString().trim();
+                password = password_editText.getText().toString().trim();
+                Toast.makeText(getApplicationContext(), "Foi", Toast.LENGTH_LONG).show();
                 auth.signInWithEmailAndPassword(email, password)
                         .addOnCompleteListener(Login.this, new OnCompleteListener<AuthResult>() {
                                     @Override
@@ -62,7 +64,6 @@ public class Login extends AppCompatActivity {
 
                                             }
                                         } else {
-                                            String para_fazer_login = MyPreferences.isLogged(Login.this, email, password);
                                             startActivity(fazer_login);
                                             finish();
                                         }

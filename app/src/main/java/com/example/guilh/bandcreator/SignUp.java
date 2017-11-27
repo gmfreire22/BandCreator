@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -19,6 +20,7 @@ public class SignUp extends AppCompatActivity {
     Button fazer_cadastro_button;
     Button go_back_to_login_button;
     Intent edit_profile;
+    boolean pode_fazer_login;
     FirebaseAuth auth;
     Intent go_back_to_login;
     EditText inputEmail, inputPassword, inputConfirmarPassword;
@@ -27,6 +29,7 @@ public class SignUp extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.sign_up);
+        pode_fazer_login = false;
         auth = FirebaseAuth.getInstance();
         inputEmail = (EditText) findViewById(R.id.novo_usuario_input);
         inputPassword = (EditText) findViewById(R.id.nova_senha_input);
@@ -39,8 +42,9 @@ public class SignUp extends AppCompatActivity {
         fazer_cadastro_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String email = inputEmail.getText().toString().trim();
-                String password = inputPassword.getText().toString().trim();
+                Toast.makeText(getApplicationContext(), "Foi!", Toast.LENGTH_SHORT).show();
+                final String email = inputEmail.getText().toString().trim();
+                final String password = inputPassword.getText().toString().trim();
                 String confirmarpassword = inputConfirmarPassword.getText().toString().trim();
 
                 if (TextUtils.isEmpty(email)) {
@@ -57,7 +61,7 @@ public class SignUp extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(), "Senha tem que ter pelo menos 6 caracteres!", Toast.LENGTH_SHORT).show();
                     return;
                 }
-                if(confirmarpassword.equals(password)){
+                if(!(confirmarpassword.equals(password))){
                     Toast.makeText(getApplicationContext(), "Senhas não combinam", Toast.LENGTH_SHORT).show();
                     return;
                 }
@@ -65,18 +69,36 @@ public class SignUp extends AppCompatActivity {
                         .addOnCompleteListener(SignUp.this, new OnCompleteListener<AuthResult>() {
                             @Override
                             public void onComplete(@NonNull Task<AuthResult> task) {
+                                Toast.makeText(SignUp.this, "Funcionou", Toast.LENGTH_SHORT).show();
                                 Toast.makeText(SignUp.this, "Funcionou: " + task.isSuccessful(), Toast.LENGTH_SHORT).show();
                                 if (!task.isSuccessful()) {
+                                    if (password.length() < 6) {
+                                        Toast.makeText(getApplicationContext(), "A senha tem que ter pelo menos 6 caracteres", Toast.LENGTH_LONG).show();
+                                    }
                                     Toast.makeText(SignUp.this, "Não Funcionou: " + task.getException(),
                                             Toast.LENGTH_SHORT).show();
                                 } else {
-                                    startActivity(new Intent(SignUp.this, edit_profile.class));
-                                    finish();
+                                    Toast.makeText(SignUp.this, "Funcionou: " + task.getException(),
+                                            Toast.LENGTH_SHORT).show();
+                                    pode_fazer_login = true;
+
                                 }
-                            }
+                                if(pode_fazer_login){
+                                auth.signInWithEmailAndPassword(email, password)
+                                        .addOnCompleteListener(SignUp.this, new OnCompleteListener<AuthResult>() {
+                                            @Override
+                                            public void onComplete(@NonNull Task<AuthResult> task) {
+                                                if (!task.isSuccessful()) {
+                                                        Toast.makeText(getApplicationContext(), "Erro", Toast.LENGTH_LONG).show();
+                                                } else {
+                                                    Toast.makeText(getApplicationContext(), "Fez login in", Toast.LENGTH_LONG).show();
+                                                    startActivity(new Intent(SignUp.this, edit_profile.class));
+                                                    finish();
+                                                }
+                                            }
+                                        });
+                            }}
                         });
-                String para_fazer_login = MyPreferences.isLogged(SignUp.this, email, password);
-                Intent intent
             }
         });
         go_back_to_login_button.setOnClickListener(new View.OnClickListener() {
@@ -88,7 +110,7 @@ public class SignUp extends AppCompatActivity {
     }
     @Override
     protected void onResume() {
-        super.onResume();
+       super.onResume();
     }
 
     @Override

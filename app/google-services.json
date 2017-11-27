@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "245383892395",
+    "firebase_url": "https://bandcreator-70012.firebaseio.com",
+    "project_id": "bandcreator-70012",
+    "storage_bucket": "bandcreator-70012.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:245383892395:android:d4786848b8d56d73",
+        "android_client_info": {
+          "package_name": "com.example.guilh.bandcreator"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "245383892395-ec6rpf51koc6sevdri4v9tt0nnegc41h.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.guilh.bandcreator",
+            "certificate_hash": "b5e30f0ca3d42e2e10cf2e83def1f624f0634b2c"
+          }
+        },
+        {
+          "client_id": "245383892395-cj8ksaj1sqvmc6dr49h3q315ts6ondqi.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAFGNheKUQ7mAsbabNA8QtlnAyexPgB7Ok"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "245383892395-cj8ksaj1sqvmc6dr49h3q315ts6ondqi.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
